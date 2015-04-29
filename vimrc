@@ -46,9 +46,13 @@ set helplang=cn
 " new file title
 """""""""""""""""""""""
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py exec ":call SetTitle()"
+
 " SetTitle function
 func SetTitle()
-    if &filetype =='python'
+    if &filetype == 'sh' 
+        call setline(1,"\#!/bin/bash") 
+        call append(line("."), "") 
+    elseif &filetype == 'python'
         call setline(1,"#!/usr/bin/env python")
         call append(line("."),"# coding=utf-8")
         call append(line(".")+1, "") 
@@ -86,6 +90,7 @@ Bundle 'bling/vim-airline'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 call vundle#end()   
 filetype plugin indent on   " required!         
