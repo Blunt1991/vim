@@ -2,7 +2,7 @@
   
 " 显示相关
 syntax on
-
+set shell=bash
 set cul             " 高亮光标所在行
 set cuc
 set shortmess=atI   " 启动的时候不显示援助提醒
@@ -59,12 +59,6 @@ func SetTitle()
     endif
 autocmd BufNewFile * normal G
 endfunc
-" 键位设置
-" 关闭方向键，强迫自己使用hjkl
-map <Left> <nop>
-map <Right> <nop>
-map <Up> <nop>
-map <Down> <nop>
 
 " 不要vim模仿vi兼容模式，建议设置，否则会有很多不兼容问题
 set nocompatible
@@ -84,20 +78,24 @@ Bundle "gmarik/vundle"
 " My Bundles here
 " original repos on github
 " vim-script repos
-Bundle 'Auto-Pairs'
+Plugin 'Auto-Pairs'
 " no github repos
-Bundle 'bling/vim-airline'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'nathanaelkane/vim-indent-guides'
 call vundle#end()   
 filetype plugin indent on   " required!         
 """"""""""""""""""""""""""""""
-" airline setting
+" plugin config
 " """"""""""""""""""""""""""""""
 set laststatus=2
+" airline config
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '«'
@@ -105,3 +103,21 @@ let g:airline_right_sep = '◀'
 let g:airline#extensions#whitespace#enabled  = 0 "关闭空白符检测
 let g:airline#extensions#tabline#enabled    = 1 "顶部tab栏显示
 let g:airline_theme                         = "bubblegum" "设定主题"
+
+" indent-guides config
+let g:indent_guides_auto_colors = 0
+
+" NERDTree config
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
+" emmet config
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+" 键位设置
+" 关闭方向键，强迫自己使用hjkl
+map <Left> <nop>
+map <Right> <nop>
+map <Up> <nop>
+map <Down> <nop>
