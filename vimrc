@@ -1,5 +1,4 @@
 " blunt's vim configration
-  
 " 显示相关
 syntax on
 set shell=bash
@@ -8,10 +7,10 @@ set cuc
 set shortmess=atI   " 启动的时候不显示援助提醒
 set go=             " 不显示图形按钮                                   
 set t_Co=256
-color desert256
+color sourcerer
 if has("gui_running")
     set guifont=Monaco\ 11
-    color desert
+    color sourcerer
 endif
    
 autocmd InsertEnter * se cul    " 用浅色高亮当前行
