@@ -7,7 +7,7 @@ set cuc
 set shortmess=atI   " 启动的时候不显示援助提醒
 set go=             " 不显示图形按钮                                   
 set t_Co=256
-color sourcerer
+color desertink
 if has("gui_running")
     set guifont=Monaco\ 11
     color sourcerer
@@ -40,11 +40,9 @@ set incsearch
 set langmenu=zh_CN.UTF-8
 set helplang=cn
 " 总是显示状态行
-"set cmdheight=2
-"""""""""""""""""""""""
-" new file title
-"""""""""""""""""""""""
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py exec ":call SetTitle()"
+" set cmdheight=2
+" auto insert file head
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py exec "call SetTitle()"
 
 " SetTitle function
 func SetTitle()
@@ -88,6 +86,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
 call vundle#end()   
 filetype plugin indent on   " required!         
 """"""""""""""""""""""""""""""
@@ -109,7 +108,7 @@ let g:indent_guides_auto_colors = 0
 " NERDTree config
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
-
+let NERDTreeIgnore=['\.pyc']
 " emmet config
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
@@ -120,3 +119,4 @@ map <Left> <nop>
 map <Right> <nop>
 map <Up> <nop>
 map <Down> <nop>
+
