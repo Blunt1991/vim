@@ -2,7 +2,7 @@
 
 - **clone配置文件**  
 `cd ~/ && git clone https://github.com/Blunt1991/vim.git`  
-`mv -r ~/vim ~/.vim`  
+`mv  ~/vim ~/.vim`  
 - **安装vundle**  
 `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
 - **链接配置文件**  
