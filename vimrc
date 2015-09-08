@@ -58,6 +58,7 @@ func SetTitle()
         call setline(1,"#!/usr/bin/env python")
         call append(line("."),"# coding=utf-8")
         call append(line(".")+1, "") 
+        call append(line(".")+1, "") 
     endif
 endfunc
 autocmd BufNewFile * normal G
