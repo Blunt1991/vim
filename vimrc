@@ -18,7 +18,7 @@ set ruler                       " 显示标尺
 set showcmd                     " 显示输入的命令
    
 " 自动缩进autoindent
-set autoindent
+set autoindent 
 set cindent
 " Tab的宽度
 set tabstop=4
@@ -41,7 +41,12 @@ set langmenu=zh_CN.UTF-8
 set helplang=cn
 " 总是显示状态行
 " set cmdheight=2
-" auto insert file head
+" 载入文件类型插件
+filetype plugin on
+" 为特定文件类型载入相关缩进文件
+filetype indent on
+
+" 新文件标题 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py exec "call SetTitle()"
 
 " SetTitle function
@@ -54,15 +59,14 @@ func SetTitle()
         call append(line("."),"# coding=utf-8")
         call append(line(".")+1, "") 
     endif
-autocmd BufNewFile * normal G
 endfunc
+autocmd BufNewFile * normal G
 
 " 不要vim模仿vi兼容模式，建议设置，否则会有很多不兼容问题
 set nocompatible
 " 禁止生成临时文件
 set nobackup
 set noswapfile 
-filetype off    " required
  
 " set the runtime path to include Vundle and initilize
 set rtp+=~/.vim/bundle/vundle
@@ -87,8 +91,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
+Plugin 'rkulla/pydiction'
 call vundle#end()   
-filetype plugin indent on   " required!         
 """"""""""""""""""""""""""""""
 " plugin config
 " """"""""""""""""""""""""""""""
@@ -101,6 +105,8 @@ let g:airline_right_sep = '◀'
 let g:airline#extensions#whitespace#enabled  = 0 "关闭空白符检测
 let g:airline#extensions#tabline#enabled    = 1 "顶部tab栏显示
 let g:airline_theme                         = "bubblegum" "设定主题"
+" pydiction config
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 " indent-guides config
 let g:indent_guides_auto_colors = 0
