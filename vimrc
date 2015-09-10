@@ -1,6 +1,7 @@
 " blunt's vim configration
 " 显示相关
 syntax on
+filetype indent plugin on
 set shell=bash
 set cul             " 高亮光标所在行
 set cuc
@@ -17,7 +18,7 @@ autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set ruler                       " 显示标尺
 set showcmd                     " 显示输入的命令
    
-" 自动缩进autoindent
+" 自动缩进
 set autoindent 
 set cindent
 " Tab的宽度
@@ -56,7 +57,7 @@ func SetTitle()
         call append(line("."), "") 
     elseif &filetype == 'python'
         call setline(1,"#!/usr/bin/env python")
-        call append(line("."),"# coding=utf-8")
+        call append(line("."),"# -*- coding:utf-8 -*-")
         call append(line(".")+1, "") 
         call append(line(".")+1, "") 
     endif
@@ -93,6 +94,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rkulla/pydiction'
+Plugin 'klen/python-mode'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
@@ -119,6 +121,8 @@ let NERDTreeIgnore=['\.pyc']
 " emmet config
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+" disable pymode folding
+let g:pymode_folding = 0
 
 " 键位设置
 " 关闭方向键，强迫自己使用hjkl
