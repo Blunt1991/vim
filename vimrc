@@ -1,6 +1,5 @@
-" blunt's vim configration
-" 显示相关
-syntax on
+" Don't put any lines in your vimrc that you don't understand.
+syntax on   " enable syntax processing
 filetype indent plugin on
 set shell=bash
 set cul             " 高亮光标所在行
@@ -18,25 +17,20 @@ autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set ruler                       " 显示标尺
 set showcmd                     " 显示输入的命令
    
-" 自动缩进
+" auto indent
 set autoindent 
 set cindent
-" Tab的宽度
-set tabstop=4
-" 统一缩进为4
-set softtabstop=4
-set shiftwidth=4
-"不要用空格代替制表符
-set expandtab
-" 在行和段开始处使用制表符
-set smarttab
-"显示行号
-set number
-" 历史记录数
-set history=1000
-"搜索逐字符高亮
-set hlsearch
-set incsearch
+set tabstop=4       " number of visual spaces per TAB"
+set softtabstop=4   " number of spaces in tab when edit
+"set shiftwidth=4
+set expandtab       " tabs are spaces, turns <TAB> into spaces
+set number          " show line number
+set history=1000    " limit history records
+
+set hlsearch        " search as characters are entered
+set incsearch       " highlight matches"
+" turn off search highlight
+map <F3> :nohlsearch<CR>
 " 语言设置
 set langmenu=zh_CN.UTF-8
 set helplang=cn
@@ -130,4 +124,3 @@ map <Left> <nop>
 map <Right> <nop>
 map <Up> <nop>
 map <Down> <nop>
-
