@@ -77,7 +77,8 @@ Bundle "gmarik/vundle"
 " vim-script repos
 Plugin 'Auto-Pairs'
 " no github repos
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -89,6 +90,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rkulla/pydiction'
 Plugin 'klen/python-mode'
+Plugin 'fatih/vim-go'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
@@ -108,31 +110,6 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " indent-guides config
 let g:indent_guides_auto_colors = 0
 
-"##### auto fcitx  ###########
-let g:input_toggle = 1
-function! Fcitx2en()
-   let s:input_status = system("fcitx-remote")
-   if s:input_status == 2
-      let g:input_toggle = 1
-      let l:a = system("fcitx-remote -c")
-   endif
-endfunction
-
-function! Fcitx2zh()
-   let s:input_status = system("fcitx-remote")
-   if s:input_status != 2 && g:input_toggle == 1
-      let l:a = system("fcitx-remote -o")
-      let g:input_toggle = 0
-   endif
-endfunction
-
-set ttimeoutlen=150
-"退出插入模式
-autocmd InsertLeave * call Fcitx2en()
-"进入插入模式
-autocmd InsertEnter * call Fcitx2zh()
-"##### auto fcitx end ######
-
 " NERDTree config
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
@@ -142,6 +119,7 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 " disable pymode folding
 let g:pymode_folding = 0
+let g:pymode = 1
 
 " 键位设置
 " 关闭方向键，强迫自己使用hjkl
