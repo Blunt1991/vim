@@ -110,6 +110,10 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 " indent-guides config
 let g:indent_guides_auto_colors = 0
 
+let g:go_fmt_command = "goimports"
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']  }
+
 " NERDTree config
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
