@@ -91,6 +91,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'rkulla/pydiction'
 Plugin 'klen/python-mode'
 Plugin 'fatih/vim-go'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
