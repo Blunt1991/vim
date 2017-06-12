@@ -1,7 +1,7 @@
 # vim配置
 
 - **clone配置文件**  
-`cd ~/ && git clone https://github.com/Blunt1991/vim.git`  
+`cd ~/ && git clone https://github.com/amsuny/vim.git`  
 `mv  ~/vim ~/.vim`  
 - **安装vundle**  
 `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
