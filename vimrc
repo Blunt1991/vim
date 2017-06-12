@@ -22,7 +22,7 @@ set autoindent
 set cindent
 set tabstop=4       " number of visual spaces per TAB"
 set softtabstop=4   " number of spaces in tab when edit
-"set shiftwidth=4
+set shiftwidth=4
 set expandtab       " tabs are spaces, turns <TAB> into spaces
 set number          " show line number
 set history=1000    " limit history records
@@ -81,18 +81,19 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'plasticboy/vim-markdown'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rkulla/pydiction'
 Plugin 'klen/python-mode'
-Plugin 'fatih/vim-go'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+Plugin 'tpope/vim-fugitive'
+" Plugin 'fatih/vim-go'
+" Plugin 'mattn/webapi-vim'
+" Plugin 'mattn/gist-vim'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
@@ -129,7 +130,7 @@ let g:pymode = 1
 
 " 键位设置
 " 关闭方向键，强迫自己使用hjkl
-map <Left> <nop>
-map <Right> <nop>
-map <Up> <nop>
-map <Down> <nop>
+" map <Left> <nop>
+" map <Right> <nop>
+" map <Up> <nop>
+" map <Down> <nop>
