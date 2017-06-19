@@ -130,6 +130,7 @@ autocmd FileType html,css EmmetInstall
 " disable pymode folding
 let g:pymode_folding = 0
 let g:pymode = 1
+let g:pymode_lint_on_write = 0
 
 " 键位设置
 " 关闭方向键，强迫自己使用hjkl
