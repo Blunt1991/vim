@@ -9,7 +9,7 @@ set go=             " 不显示图形按钮
 set t_Co=256
 color desertink
 if has("gui_running")
-    set guifont=Monaco\ 11
+    set guifont=Monaco\ 12
     color sourcerer
 endif
    
@@ -29,6 +29,9 @@ set history=1000    " limit history records
 
 set hlsearch        " search as characters are entered
 set incsearch       " highlight matches"
+
+" 修复Mac下delete键无效
+set backspace=2
 " turn off search highlight
 map <F3> :nohlsearch<CR>
 " 语言设置
