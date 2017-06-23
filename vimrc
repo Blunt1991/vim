@@ -8,6 +8,7 @@ set shortmess=atI   " 启动的时候不显示援助提醒
 set go=             " 不显示图形按钮                                   
 set t_Co=256
 color desertink
+" colorscheme onedark
 if has("gui_running")
     set guifont=Monaco\ 12
     color sourcerer
@@ -94,6 +95,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'rkulla/pydiction'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
+Plugin 'sheerun/vim-polyglot'
 " Plugin 'fatih/vim-go'
 " Plugin 'mattn/webapi-vim'
 " Plugin 'mattn/gist-vim'
