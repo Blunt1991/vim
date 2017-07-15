@@ -8,6 +8,7 @@ set shortmess=atI   " 启动的时候不显示援助提醒
 set go=             " 不显示图形按钮                                   
 set t_Co=256
 color desertink
+" colorscheme onedark
 if has("gui_running")
     set guifont=Monaco\ 12
     color sourcerer
@@ -94,9 +95,11 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'rkulla/pydiction'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'fatih/vim-go'
-" Plugin 'mattn/webapi-vim'
-" Plugin 'mattn/gist-vim'
+Plugin 'fatih/vim-go'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'sheerun/vim-polyglot'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
@@ -131,10 +134,12 @@ autocmd FileType html,css EmmetInstall
 let g:pymode_folding = 0
 let g:pymode = 1
 let g:pymode_lint_on_write = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_role_completion = 0
 
 " 键位设置
 " 关闭方向键，强迫自己使用hjkl
-" map <Left> <nop>
-" map <Right> <nop>
-" map <Up> <nop>
-" map <Down> <nop>
+map <Left> <nop>
+map <Right> <nop>
+map <Up> <nop>
+map <Down> <nop>
