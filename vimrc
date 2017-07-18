@@ -100,6 +100,7 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'mattn/gist-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'fisadev/vim-isort'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
@@ -146,3 +147,5 @@ let g:pymode_rope_completion = 0
 
 " PymodeLint shortcut key
 map <F4> :PymodeLint<CR>
+" vim-isort shortcut key
+map <C-i> :Isort<CR>
