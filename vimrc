@@ -95,10 +95,11 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'rkulla/pydiction'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
-Plugin 'sheerun/vim-polyglot'
 " Plugin 'fatih/vim-go'
 " Plugin 'mattn/webapi-vim'
 " Plugin 'mattn/gist-vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'sheerun/vim-polyglot'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
@@ -133,6 +134,8 @@ autocmd FileType html,css EmmetInstall
 let g:pymode_folding = 0
 let g:pymode = 1
 let g:pymode_lint_on_write = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_completion = 0
 
 " 键位设置
 " 关闭方向键，强迫自己使用hjkl
@@ -140,3 +143,6 @@ let g:pymode_lint_on_write = 0
 " map <Right> <nop>
 " map <Up> <nop>
 " map <Down> <nop>
+
+" PymodeLint shortcut key
+map <F4> :PymodeLint<CR>
