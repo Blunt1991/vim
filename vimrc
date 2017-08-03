@@ -101,6 +101,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'fisadev/vim-isort'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
