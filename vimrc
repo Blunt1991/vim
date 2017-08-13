@@ -1,4 +1,5 @@
 " Don't put any lines in your vimrc that you don't understand.
+syntax enable
 syntax on   " enable syntax processing
 filetype indent plugin on
 set shell=bash
@@ -8,7 +9,6 @@ set shortmess=atI   " 启动的时候不显示援助提醒
 set go=             " 不显示图形按钮                                   
 set t_Co=256
 color desertink
-" colorscheme onedark
 if has("gui_running")
     set guifont=Monaco\ 12
     color sourcerer
@@ -17,6 +17,9 @@ endif
 autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set ruler                       " 显示标尺
 set showcmd                     " 显示输入的命令
+
+" 配置立刻生效
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
    
 " auto indent
 set autoindent 
@@ -92,16 +95,11 @@ Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
-Plugin 'rkulla/pydiction'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'fatih/vim-go'
-" Plugin 'mattn/webapi-vim'
-" Plugin 'mattn/gist-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'fisadev/vim-isort'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
@@ -115,15 +113,9 @@ let g:airline_right_sep = '◀'
 let g:airline#extensions#whitespace#enabled  = 0 "关闭空白符检测
 let g:airline#extensions#tabline#enabled    = 1 "顶部tab栏显示
 let g:airline_theme                         = "bubblegum" "设定主题"
-" pydiction config
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 " indent-guides config
 let g:indent_guides_auto_colors = 0
-
-let g:go_fmt_command = "goimports"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']  }
 
 " NERDTree config
 map <F2> :NERDTreeToggle<CR>
@@ -137,7 +129,9 @@ let g:pymode_folding = 0
 let g:pymode = 1
 let g:pymode_lint_on_write = 0
 let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_completion = 0
+let g:pymode_role_completion = 0
+let g:pymode_trim_whitespaces = 1
+let g:pymode_doc = 0
 
 " 键位设置
 " 关闭方向键，强迫自己使用hjkl
@@ -149,4 +143,4 @@ let g:pymode_rope_completion = 0
 " PymodeLint shortcut key
 map <F4> :PymodeLint<CR>
 " vim-isort shortcut key
-map <C-i> :Isort<CR>
+map <C-i> :iSort<CR>
