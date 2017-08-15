@@ -3,23 +3,25 @@ syntax enable
 syntax on   " enable syntax processing
 filetype indent plugin on
 set shell=bash
+set mouse=a         " 鼠标可用
 set cul             " 高亮光标所在行
 set cuc
 set shortmess=atI   " 启动的时候不显示援助提醒
 set go=             " 不显示图形按钮                                   
 set t_Co=256
-color desertink
+colors desertink
 if has("gui_running")
     set guifont=Monaco\ 12
     color sourcerer
 endif
-   
+
+set autoread                    " 自动检测文件改动
 autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set ruler                       " 显示标尺
 set showcmd                     " 显示输入的命令
 
 " 配置立刻生效
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" autocmd BufWritePost $MYVIMRC source $MYVIMRC
    
 " auto indent
 set autoindent 
@@ -50,7 +52,6 @@ filetype indent on
 
 " 新文件标题 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py exec "call SetTitle()"
-
 " SetTitle function
 func SetTitle()
     if &filetype == 'sh' 
@@ -63,6 +64,7 @@ func SetTitle()
         call append(line(".")+1, "") 
     endif
 endfunc
+
 autocmd BufNewFile * normal G
 
 " 不要vim模仿vi兼容模式，建议设置，否则会有很多不兼容问题
@@ -100,6 +102,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'fisadev/vim-isort'
+Plugin 'kien/ctrlp.vim'
+" Plugin 'hzchirs/vim-material'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
