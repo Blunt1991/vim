@@ -147,4 +147,4 @@ let g:pymode_doc = 0
 " PymodeLint shortcut key
 map <F4> :PymodeLint<CR>
 " vim-isort shortcut key
-map <C-i> :iSort<CR>
+map <C-i> :Isort<CR>
