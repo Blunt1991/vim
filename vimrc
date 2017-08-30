@@ -103,6 +103,7 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'fisadev/vim-isort'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mhinz/vim-signify'
 " Plugin 'hzchirs/vim-material'
 call vundle#end()   
 """"""""""""""""""""""""""""""
@@ -137,13 +138,13 @@ let g:pymode_role_completion = 0
 let g:pymode_trim_whitespaces = 1
 let g:pymode_doc = 0
 
-" 键位设置
 " 关闭方向键，强迫自己使用hjkl
 " map <Left> <nop>
 " map <Right> <nop>
 " map <Up> <nop>
 " map <Down> <nop>
 
+" shortcuts
 " PymodeLint shortcut key
 map <F4> :PymodeLint<CR>
 " vim-isort shortcut key
