@@ -1,5 +1,6 @@
 " Don't put any lines in your vimrc that you don't understand.
-syntax enable
+" 不要vim模仿vi兼容模式，建议设置，否则会有很多不兼容问题
+set nocompatible
 syntax on   " enable syntax processing
 filetype indent plugin on
 set shell=bash
@@ -36,7 +37,7 @@ set history=1000    " limit history records
 set hlsearch        " search as characters are entered
 set incsearch       " highlight matches"
 
-" 修复Mac下delete键无效
+" fix delete key invalid in mac
 set backspace=2
 " turn off search highlight
 map <F3> :nohlsearch<CR>
@@ -50,7 +51,7 @@ filetype plugin on
 " 为特定文件类型载入相关缩进文件
 filetype indent on
 
-" 新文件标题 
+" set header in new file
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py exec "call SetTitle()"
 " SetTitle function
 func SetTitle()
@@ -67,8 +68,6 @@ endfunc
 
 autocmd BufNewFile * normal G
 
-" 不要vim模仿vi兼容模式，建议设置，否则会有很多不兼容问题
-set nocompatible
 " 禁止生成临时文件
 set nobackup
 set noswapfile 
@@ -97,13 +96,12 @@ Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
-Plugin 'klen/python-mode'
 Plugin 'tpope/vim-fugitive'
-Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'fisadev/vim-isort'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
+Plugin 'nvie/vim-flake8'
 " Plugin 'hzchirs/vim-material'
 call vundle#end()   
 """"""""""""""""""""""""""""""
@@ -129,14 +127,16 @@ let NERDTreeIgnore=['\.pyc']
 " emmet config
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-" disable pymode folding
-let g:pymode_folding = 0
-let g:pymode = 1
-let g:pymode_lint_on_write = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_role_completion = 0
-let g:pymode_trim_whitespaces = 1
-let g:pymode_doc = 0
+
+" python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 " 关闭方向键，强迫自己使用hjkl
 " map <Left> <nop>
@@ -145,7 +145,6 @@ let g:pymode_doc = 0
 " map <Down> <nop>
 
 " shortcuts
-" PymodeLint shortcut key
-map <F4> :PymodeLint<CR>
 " vim-isort shortcut key
 map <C-i> :Isort<CR>
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
