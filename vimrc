@@ -147,4 +147,8 @@ EOF
 " shortcuts
 " vim-isort shortcut key
 map <C-i> :Isort<CR>
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" syntastic settings
+let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_python_checker_args = '--ignore=E501'
+" let g:syntastic_python_pylint_args="-d C0103,C0111,R0201"
+" let g:syntastic_python_flake8_args='--ignore=F821,E302,E501'
