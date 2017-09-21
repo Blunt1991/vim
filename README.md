@@ -1,13 +1,24 @@
-# vim配置
+# vimrc
 
-- **clone配置文件**  
-`cd ~/ && git clone https://github.com/amsuny/vim.git`  
-`mv  ~/vim ~/.vim`  
-- **安装vundle**  
-`git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
-- **链接配置文件**  
-`ln -s .vim/vimrc ~/.vimrc`
-- **打开vim**
-`:BundleInstall`
-- **重新打开vim即可看到效果**
+- clone repo
+
+```bash
+cd ~/ && git clone https://github.com/amsuny/vim.git
+mv  ~/vim ~/.vim
+```  
+
+- install vundle  
+
+```bash
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+```
+
+- link vimrc
+
+```bash
+ln -s .vim/vimrc ~/.vimrc
+```
+
+- install plugins
+open vim and `:BundleInstall`
 
