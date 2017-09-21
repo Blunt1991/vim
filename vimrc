@@ -136,11 +136,11 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-" 关闭方向键，强迫自己使用hjkl
-" map <Left> <nop>
-" map <Right> <nop>
-" map <Up> <nop>
-" map <Down> <nop>
+" disable arrow key 
+map <Left> <nop>
+map <Right> <nop>
+map <Up> <nop>
+map <Down> <nop>
 
 " shortcuts
 " vim-isort shortcut key
