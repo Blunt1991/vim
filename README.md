@@ -20,5 +20,6 @@ ln -s .vim/vimrc ~/.vimrc
 ```
 
 - install plugins
+
 open vim and `:BundleInstall`
 
