@@ -4,8 +4,8 @@ set nocompatible
 syntax on   " enable syntax processing
 filetype indent plugin on
 set shell=bash
-set mouse=a         " 鼠标可用
-set cul             " 高亮光标所在行
+set mouse=a         " set mouse available
+set cul             " highlight the cursor line
 set cuc
 set shortmess=atI   " 启动的时候不显示援助提醒
 set go=             " 不显示图形按钮                                   
@@ -22,7 +22,10 @@ set ruler                       " 显示标尺
 set showcmd                     " 显示输入的命令
 
 " 配置立刻生效
-" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" augroup myvimrc
+"     au!
+"     au BufWritePost .vimrc,.gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+" augroup END
    
 " auto indent
 set autoindent 
@@ -33,7 +36,7 @@ set shiftwidth=4
 set expandtab       " tabs are spaces, turns <TAB> into spaces
 set number          " show line number
 set history=1000    " limit history records
-
+set colorcolumn=80
 set hlsearch        " search as characters are entered
 set incsearch       " highlight matches"
 
@@ -41,7 +44,7 @@ set incsearch       " highlight matches"
 set backspace=2
 " turn off search highlight
 map <F3> :nohlsearch<CR>
-" 语言设置
+" language setting
 set langmenu=zh_CN.UTF-8
 set helplang=cn
 " 总是显示状态行
@@ -52,9 +55,8 @@ filetype plugin on
 filetype indent on
 
 " set header in new file
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py exec "call SetTitle()"
-" SetTitle function
-func SetTitle()
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py exec "call InsertTitle()"
+func InsertTitle()
     if &filetype == 'sh' 
         call setline(1,"\#!/bin/bash") 
         call append(line("."), "") 
@@ -80,17 +82,14 @@ call vundle#begin()
 " required!
 Bundle "gmarik/vundle" 
   
-" My Bundles here
-" original repos on github
-" vim-script repos
+" Plugins here
 Plugin 'Auto-Pairs'
-" no github repos
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
@@ -102,7 +101,6 @@ Plugin 'fisadev/vim-isort'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'nvie/vim-flake8'
-" Plugin 'hzchirs/vim-material'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
@@ -148,7 +146,7 @@ EOF
 " vim-isort shortcut key
 map <C-i> :Isort<CR>
 " syntastic settings
-let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_python_checkers = ['flake8',]
 let g:syntastic_python_checker_args = '--ignore=E501'
-" let g:syntastic_python_pylint_args="-d C0103,C0111,R0201"
-" let g:syntastic_python_flake8_args='--ignore=F821,E302,E501'
+let g:syntastic_python_pylint_args="-d C0103,C0111,R0201"
+"let g:syntastic_python_flake8_args='--ignore=F821,E302,E501'
