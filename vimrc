@@ -36,10 +36,9 @@ set shiftwidth=4
 set expandtab       " tabs are spaces, turns <TAB> into spaces
 set number          " show line number
 set history=1000    " limit history records
-set colorcolumn=80
+set colorcolumn=79
 set hlsearch        " search as characters are entered
 set incsearch       " highlight matches"
-
 " fix delete key invalid in mac
 set backspace=2
 " turn off search highlight
@@ -101,6 +100,8 @@ Plugin 'fisadev/vim-isort'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'nvie/vim-flake8'
+Plugin 'tell-k/vim-autopep8'
+Plugin 'szw/vim-tags'
 call vundle#end()   
 """"""""""""""""""""""""""""""
 " plugin config
