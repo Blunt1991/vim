@@ -20,6 +20,10 @@ set autoread                    " 自动检测文件改动
 autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set ruler                       " 显示标尺
 set showcmd                     " 显示输入的命令
+set number          " show line number
+set history=1000    " limit history records
+set hlsearch        " search as characters are entered
+set incsearch       " highlight matches"
 
 " 配置立刻生效
 " augroup myvimrc
@@ -27,18 +31,15 @@ set showcmd                     " 显示输入的命令
 "     au BufWritePost .vimrc,.gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 " augroup END
    
-" auto indent
+" code style
+set textwidth=79    " lines longer than 79 columns will be broken
+set shiftwidth=4    " operation >> indents 4 columns; << unindent 4 columns
+set tabstop=4       " a hard TAB display as 4 columns
+set expandtab       " insert spaces when hitting TABs
+set softtabstop=4   " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set shiftround      " round indent to multiple of 'shiftwidth'
 set autoindent 
-set cindent
-set tabstop=4       " number of visual spaces per TAB"
-set softtabstop=4   " number of spaces in tab when edit
-set shiftwidth=4
-set expandtab       " tabs are spaces, turns <TAB> into spaces
-set number          " show line number
-set history=1000    " limit history records
-set colorcolumn=79
-set hlsearch        " search as characters are entered
-set incsearch       " highlight matches"
+
 " fix delete key invalid in mac
 set backspace=2
 " turn off search highlight
