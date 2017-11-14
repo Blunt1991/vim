@@ -74,36 +74,30 @@ autocmd BufNewFile * normal G
 set nobackup
 set noswapfile 
  
-" set the runtime path to include Vundle and initilize
-set rtp+=~/.vim/bundle/vundle
-call vundle#begin()
-  
-" let Vundle manage Vundle
-" required!
-Bundle "gmarik/vundle" 
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
   
 " Plugins here
-Plugin 'Auto-Pairs'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'mattn/emmet-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-fugitive'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'fisadev/vim-isort'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mhinz/vim-signify'
-Plugin 'nvie/vim-flake8'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'szw/vim-tags'
-call vundle#end()   
+Plug 'vim-scripts/Auto-Pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-syntastic/syntastic'
+Plug 'Valloric/YouCompleteMe'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-fugitive'
+Plug 'sheerun/vim-polyglot'
+Plug 'fisadev/vim-isort', {'for': 'python'}
+Plug 'kien/ctrlp.vim'
+Plug 'mhinz/vim-signify'
+Plug 'nvie/vim-flake8', {'for': 'python'}
+Plug 'tell-k/vim-autopep8', {'for': 'python'}
+Plug 'szw/vim-tags'
+call plug#end()   
 """"""""""""""""""""""""""""""
 " plugin config
 " """"""""""""""""""""""""""""""
@@ -127,16 +121,6 @@ let NERDTreeIgnore=['\.pyc']
 " emmet config
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-
-" python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 " disable arrow key 
 map <Left> <nop>
