@@ -32,7 +32,8 @@ set incsearch       " highlight matches"
 " augroup END
    
 " code style
-set textwidth=79    " lines longer than 79 columns will be broken
+set colorcolumn=80
+" set textwidth=79    " lines longer than 79 columns will be broken
 set shiftwidth=4    " operation >> indents 4 columns; << unindent 4 columns
 set tabstop=4       " a hard TAB display as 4 columns
 set expandtab       " insert spaces when hitting TABs
@@ -79,6 +80,7 @@ call plug#begin('~/.vim/plugged')
   
 " Plugins here
 Plug 'vim-scripts/Auto-Pairs'
+Plug 'vim-scripts/IndexedSearch'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
@@ -132,7 +134,6 @@ map <Down> <nop>
 " vim-isort shortcut key
 map <C-i> :Isort<CR>
 " syntastic settings
-let g:syntastic_python_checkers = ['flake8',]
-let g:syntastic_python_checker_args = '--ignore=E501'
+let g:syntastic_python_checkers = ['flake8','pylint']
 let g:syntastic_python_pylint_args="-d C0103,C0111,R0201"
-"let g:syntastic_python_flake8_args='--ignore=F821,E302,E501'
+let g:syntastic_python_flake8_args='--ignore=F821,E302,E501'
