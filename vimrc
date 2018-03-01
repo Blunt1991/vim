@@ -81,6 +81,7 @@ call plug#begin('~/.vim/plugged')
 " Plugins here
 Plug 'vim-scripts/Auto-Pairs'
 Plug 'vim-scripts/IndexedSearch'
+Plug 'vim-scripts/taglist.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
@@ -122,7 +123,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeT
 let NERDTreeIgnore=['\.pyc']
 " emmet config
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,htmldjango,scss EmmetInstall
 
 " disable arrow key 
 map <Left> <nop>
