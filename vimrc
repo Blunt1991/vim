@@ -95,7 +95,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'fisadev/vim-isort', {'for': 'python'}
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-signify'
 Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
@@ -138,3 +138,8 @@ map <C-i> :Isort<CR>
 let g:syntastic_python_checkers = ['flake8','pylint']
 let g:syntastic_python_pylint_args="-d C0103,C0111,R0201"
 let g:syntastic_python_flake8_args='--ignore=F821,E302,E501'
+" ctrlp ignore
+" let g:ctrlp_custom_ignore = "\v[\/](node_modules|dist)|(\.(git|svn))$"
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+" vim-tags
+let g:vim_tags_auto_generate = 1
