@@ -10,10 +10,9 @@ set cuc
 set shortmess=atI   " 启动的时候不显示援助提醒
 set go=             " 不显示图形按钮                                   
 set t_Co=256
-colors desertink
+" colors desertink
 if has("gui_running")
     set guifont=Monaco\ 12
-    color sourcerer
 endif
 
 set autoread                    " 自动检测文件改动
@@ -100,10 +99,12 @@ Plug 'mhinz/vim-signify'
 Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
 Plug 'szw/vim-tags'
+Plug 'morhetz/gruvbox'
 call plug#end()   
 """"""""""""""""""""""""""""""
 " plugin config
 " """"""""""""""""""""""""""""""
+colorscheme gruvbox
 set laststatus=2
 " airline config
 let g:airline_left_sep = '»'
@@ -112,7 +113,8 @@ let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
 let g:airline#extensions#whitespace#enabled  = 0 "关闭空白符检测
 let g:airline#extensions#tabline#enabled    = 1 "顶部tab栏显示
-let g:airline_theme                         = "bubblegum" "设定主题"
+" let g:airline_theme                         = "bubblegum" "设定主题"
+let g:airline_theme                         = "gruvbox" "设定主题"
 
 " indent-guides config
 let g:indent_guides_auto_colors = 0
